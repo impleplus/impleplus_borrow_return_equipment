@@ -1,5 +1,7 @@
 <h2>impleplus borrow and return equipment</h2>
 
+<img src="https://impleplus.com/static/builder/sao.png">
+
 <h3>1. Program details</h3>
 
 Equipment borrow-return program used in the company to record information about employees who borrow equipment. Able to store details of borrowing-returning equipment. developed by Impleplus Company. and distribute it for free There is no cost. Can be used for free.
