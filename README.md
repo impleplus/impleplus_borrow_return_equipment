@@ -60,6 +60,7 @@ node app.js
 
 http://localhost:3000
 
-6 Special thank you tabler UI
-impleplus builder front-end developed base on tabler UI. Please see link for detail https://github.com/tabler/tabler
+<h3>6 Special thank you tabler UI</h3>
+impleplus builder front-end developed base on tabler UI. Please see link for detail 
+https://github.com/tabler/tabler
 
