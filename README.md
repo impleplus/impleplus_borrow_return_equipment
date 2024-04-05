@@ -38,11 +38,11 @@ How to install the system to the page User's program, click on "Install" The sys
 
 4.1 Things to prepare and install before downloading the program
 
-3.1.1 Node.js How to install Node.js can be found here Install Node.js
+4.1.1 Node.js How to install Node.js can be found here Install Node.js <a href="https://nodejs.org/en/learn/getting-started/how-to-install-nodejs" target="_blank">Install Node.js</a>
 
-3.1.2 Mysql How to install Mysql can be found here Install Mysql
+4.1.2 Mysql How to install Mysql can be found here Install Mysql  <a href="https://dev.mysql.com/doc/mysql-installation-excerpt/5.7/en/preface.html" target="_blank">Install Mysql</a>
 
-4.2 Download Source code from Git hub impleplus github
+4.2 Download Source code from Git hub impleplus github <a href="https://github.com/impleplus" target="_blank">impleplus github</a>
 
 4.3 Install Node modules to source code with command
 
