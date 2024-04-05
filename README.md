@@ -1,6 +1,6 @@
 <h2>impleplus borrow and return equipment</h2>
 
-<img src="https://impleplus.com/static/builder/sao.png">
+<img src="https://impleplus.com/static/builder/bre.png">
 
 <h3>1. Program details</h3>
 
