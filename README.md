@@ -20,7 +20,7 @@ Program details include:
 
 Url
 
-https://demo.impleplus.com/bre
+<a href="https://demo.impleplus.com/bre" target="_blank">https://demo.impleplus.com/bre</a>
 
 User Login
 
@@ -32,7 +32,7 @@ Password: 7Zv8Neuszwck
 
 Url
 
-https://builder.impleplus.com
+<a href="https://builder.impleplus.com" target="_blank">https://builder.impleplus.com</a>
 
 How to install the system to the page User's program, click on "Install" The system will install the system for you. When finished Users can edit the program through the menu "My Application" > "Applications"
 
