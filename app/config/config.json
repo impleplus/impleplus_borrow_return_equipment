@@ -1,0 +1,66 @@
+{
+    "database": {
+        "username": "",
+        "password": "",
+        "databasename": "",
+        "host": "localhost",
+        "port": "3306",
+        "dialect": "mysql"
+    },
+    "uploadPath": "uploads",
+    "paginationNum": 20,
+    "exportRecord": 10,
+    "cookie": {
+        "securityKey": "cm8gscevqXbp1lsJkEjDRSGc42QEsIIP",
+        "initVector": "XkfWqiIPibr47yZf",
+        "name": "lAlUG0K5Gw1dosxt",
+        "secret": "oN5rBMQ78kmJUP79",
+        "maxAge": 1000,
+        "expires": 2147483647,
+        "cookieOptions": {
+            "httpOnly": true,
+            "secure": false,
+            "sameSite": true
+        }
+    },
+    "ignore": {
+        "exportColumns": [
+            "id",
+            "owner_id",
+            "assign",
+            "create_by",
+            "create_date",
+            "update_by",
+            "update_date"
+        ]
+    },
+    "importTables": [
+        {
+            "name": "borrow_equipment",
+            "addDefaultData": false
+        },
+        {
+            "name": "borrow_equipment_item",
+            "addDefaultData": false
+        },
+        {
+            "name": "borrower",
+            "addDefaultData": false
+        },
+        {
+            "name": "equipment",
+            "addDefaultData": false
+        },
+        {
+            "name": "equipment_group",
+            "addDefaultData": false
+        },
+        {
+            "name": "user",
+            "addDefaultData": false
+        }
+    ],
+    "dateFormat": "DD/MM/YYYY",
+    "databaseSync": "force",
+    "version": 1
+}

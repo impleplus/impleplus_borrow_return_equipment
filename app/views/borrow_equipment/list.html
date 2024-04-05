@@ -1,0 +1,98 @@
+<div class="page-body">
+	<div class="container-xl">
+ 		<div class="col-12">
+ 			<div class="card">
+ 				<div class="card-body">
+ 							<h3>Borrow Equipment</h3><hr class="header-text"/>
+ 								<div class="row pb-1">
+ 									<div class="col col-10">
+ 										<div class="row">
+ 									<div class="col col-3">
+ 										<div class="form-group">
+ 											<label class="form-label">&nbsp;</label>
+ 											<div>
+ 												<input type="text" name="qborrow_equipmentRecords" id="qborrow_equipmentRecords" value="<%=param.qborrow_equipmentRecords%>" data-type="text" data-field='borrower,return_status' data-operator="like" class="form-control table_wWCGHN-searchFilter" placeholder="Search for…" autocomplete="off">
+ 											</div>
+ 										</div>
+ 									</div>
+ 									
+<div class="col col-2"> 
+ 										<div class="form-group">
+ 											<label class="form-label">Return Status</label>
+ 											<div>
+ 												<select name="qreturn_status" id="qreturn_status" class="form-select table_wWCGHN-searchFilter" data-type="text" data-field='return_status' data-operator="like" autocomplete="off">
+ 													<option value=""></option>
+ 													<% [{"value":"0","text":"Not Return"},{"value":"1","text":"Returned"}].forEach(function(data) { %>
+ 														<option value="<%=data.value%>" <%if(param.qreturn_status==data.value){%>selected<%}%> ><%=data.text%></option>
+ 													<% }) %> 
+ 												</select>
+ 											</div>
+ 										</div>
+ 									</div>
+ 										<div class="col col-1">
+ 											<label class="form-label">&nbsp;</label>
+ 											<button class="btn btn-secondary btn-pill" type="button" onclick="table_wWCGHN.onSearch()" >Search</button>
+ 										</div>
+ 										</div>
+ 									</div>
+ 									<div class="col-auto ms-auto d-print-none">
+ 										<div class="btn-list">
+ 											<%if(accessAction.export){%><a href="#" onclick="table_wWCGHN.export()" class="btn btn-outline-secondary d-none d-sm-inline">Export</a><%}%>
+ 											<%if(accessAction.create){%><a href="/borrow_equipment/edit" class="btn btn-outline-success d-none d-sm-inline" target="">New Data</a><%}%>
+ 										</div>
+ 									</div>
+ 								</div>
+ 								<div class="table-responsive">
+ 									<table class="table card-table table-vcenter text-nowrap datatable table-striped" id="tbl-table_wWCGHN">
+ 										<thead>
+ 											<tr>
+ 												<th>First name</th>
+												<th>Last name</th>
+												<th>Start date</th>
+												<th>Return date</th>
+												<th>Status</th>
+												<th></th>
+												<th></th>
+ 											</tr>
+ 										</thead>
+ 										<tbody>
+ 										</tbody>
+ 										<tfoot></tfoot> 
+ 									</table>
+ 								
+
+ 								<div id="tbl-table_wWCGHN-pagination" class="imple-pagination"></div>
+ 							</div>
+ 				</div>
+ 			</div>
+ 		</div>
+ 	</div>
+</div>
+
+<%- contentFor('scripts') %>
+<script type="text/javascript">
+    var accessAction = [];
+    var accessActionData = "<%-accessAction%>";
+    var dataParam = '<%-JSON.stringify(param)%>';
+    var param = {};
+    if(dataParam != ""){
+      param = JSON.parse('<%-JSON.stringify(param)%>');
+    }    
+    if(accessActionData != "" && accessActionData != undefined) {
+        accessAction = JSON.parse(String.raw `<%-JSON.stringify(accessAction)%>`);
+    }
+    
+    var borrow_equipmentRecords = JSON.parse(String.raw `<%-JSON.stringify(borrow_equipmentRecords)%>`);
+    
+    var borrow_equipmentRecordsPagination = JSON.parse(String.raw `<%-JSON.stringify(borrow_equipmentRecordsPagination)%>`);
+    var table_wWCGHN = new Table_wWCGHN("table_wWCGHN",accessAction);
+0
+
+onload = () => {
+        table_wWCGHN.render(borrow_equipmentRecords,"");
+        table_wWCGHN.pagination(borrow_equipmentRecordsPagination);
+}
+    
+    
+
+</script>

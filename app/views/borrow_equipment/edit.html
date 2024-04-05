@@ -1,0 +1,133 @@
+<div class="page-body">
+	<div class="container-xl">
+ 		<div class="col-12">
+ 			<div class="card">
+ 				<div class="card-body">
+ 					<ul class="nav nav-tabs" data-bs-toggle="tabs">
+ 						<li class="nav-item">
+ 							<a href="#tabs-Ljzegr" class="nav-link active" data-bs-toggle="tab">Information</a>
+ 						</li>
+ 
+ 					</ul>
+ 					<div class="card-body">
+ 						<div class="tab-content">
+ 							<div class="tab-pane active show" id="tabs-Ljzegr">
+ 								<form action="/borrow_equipment/save" class="needs-validation" id="frm-Ljzegr" method="post">
+ 
+ 									<div class="form-group mb-3 col-md-12">
+ 										<label class="form-label">Borrower</label>
+ 											<div class="row g-2">
+ 											<div class="col">
+ 												<input type="hidden" name="borrower_id" id="lookup_TwSrSf" value="<%=borrow_equipmentRecord.borrower_id%>">
+ 												<input type="text" name="borrower_id_text" id="lookup_TwSrSf_text" value="<%=borrow_equipmentRecord.borrower_text%>" class="form-control " >
+ 											</div>
+ 											<div class="col-auto">
+ 												<button type="button" href="#" class="btn btn-white btn-icon" aria-label="Button" data-title="Borrower" data-varibale="borrowerRecords" data-url="/borrower" data-headers="First name,Last name,Employee code,Position" data-fields="firstname,lastname,employee_code,position" data-select="id,firstname" data-target="lookup_TwSrSf,lookup_TwSrSf_text" onclick="lookup.open(this)">
+ 													<svg class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><circle cx="10" cy="10" r="7" /><line x1="21" y1="21" x2="15" y2="15" /></svg>
+ 												</button>
+ 											</div>
+ 										</div>
+ 									</div>
+ 									<div class="form-group mb-3 col-md-12">
+ 										<label class="form-label">Objective</label>
+ 										<div>
+ 											<input type="text" name="objective" id="input_cIQyDa" maxlength="100" value="<%=borrow_equipmentRecord.objective%>" class="form-control " autocomplete="off" >
+ 										</div>
+ 									</div>
+ 
+ 							<div class="mb-3 col-md-12">
+ 								<div class="row">
+ 									<div class="d-flex">
+ 										<div class="form-label">Equipment</div>
+ 											<div class="ms-auto">
+ 												<div class="ms-2 d-inline-block">
+ 													<input type="button" value="Add" class="btn btn-light" onclick="_datasheet_Eextmc.onAddRow()">
+ 												</div>
+ 												</div>
+ 									</div>
+ 									<div class="table-responsive">
+ 										<input type="hidden" name="datasheet_Eextmc" id="datasheet_Eextmc">
+ 										<table class="table table-vcenter card-table table-striped datasheet" data-id="datasheet_Eextmc">
+ 											<thead>
+ 											</thead>
+ 											<tbody>
+ 											</tbody>
+ 										</table>
+ 									</div>
+ 								</div>
+ 							</div>
+ 
+ 							<div class="form-group mb-3 col-md-12">
+ 								<label class="form-label">Remark</label>
+ 								<div>
+ 									<textarea name="remark" id="textarea_FrfIhs" maxlength="100" class="form-control " ><%=borrow_equipmentRecord.remark%></textarea>
+ 								</div>
+ 							</div>
+ 									<div class="form-group mb-3 col-md-12">
+ 										<label class="form-label">Approve by</label>
+ 										<div>
+ 											<input type="text" name="approve_by" id="input_jwnlRS" maxlength="100" value="<%=borrow_equipmentRecord.approve_by%>" class="form-control " autocomplete="off" >
+ 										</div>
+ 									</div>
+ 											<%if(accessAction.edit){%> 
+ 												<div class="spinner-border" id="button_lzfVmh_loading" role="status" style="display: none;"><span class="visually-hidden">Loading...</span></div> 
+ 												<button type="submit" id="button_lzfVmh" class="btn btn-fw btn-primary btn-save" data-form="frm-Ljzegr" method-callback="" method-before="" >Save</button> 
+ 											<%}%>
+ 
+ 
+ 								</form>
+ 							</div>
+ 
+ 						</div>
+ 					</div>
+ 				</div>
+ 			</div>
+ 		</div>
+ 	</div>
+</div>
+
+<%- contentFor('scripts') %>
+<script type="text/javascript">
+    var accessAction = [];
+    var accessActionData = "<%-accessAction%>";
+    var dataParam = '<%-JSON.stringify(param)%>';
+    var param = {};
+    if(dataParam != ""){
+      param = JSON.parse('<%-JSON.stringify(param)%>');
+    }    
+    if(accessActionData != "" && accessActionData != undefined) {
+        accessAction = JSON.parse(String.raw `<%-JSON.stringify(accessAction)%>`);
+    }
+    
+var borrow_equipment_itemRecords = [];
+var borrow_equipment_itemRecordsData = "<%-borrow_equipment_itemRecords%>";
+if(borrow_equipment_itemRecordsData != "" && borrow_equipment_itemRecordsData != undefined) {
+    borrow_equipment_itemRecords = JSON.parse(String.raw `<%-JSON.stringify(borrow_equipment_itemRecords)%>`);
+}
+
+var tableId = "datasheet_Eextmc";
+var _datasheet_Eextmc;
+
+setLookupValue_datasheet_Eextmc = (data) => {
+    var tableId = data[0];
+    var rowId = data[1];
+    var foundIndex = _datasheet_Eextmc.items.findIndex(x => x.id == rowId);
+    var elId = data[2];
+    var elName = data[3];
+    _datasheet_Eextmc.items[foundIndex][elId] = data[4];
+    _datasheet_Eextmc.items[foundIndex][elName] = data[5];
+    document.getElementById(tableId).value = JSON.stringify(_datasheet_Eextmc.items);
+}
+
+0
+
+onload = () => {
+        
+    _datasheet_Eextmc = new DataSheet("datasheet_Eextmc",[{"text":"Item","width":"60%"},{"text":"Qty","width":"10%"},{"text":"Return Status","width":"10%"}],[{"field":"borrow_equipment_id","field_text":"borrow_equipment_name","type":"lookup","readonly":true},{"field":"quantity","type":"number","readonly":false},{"field":"return_status","type":"select","readonly":false,"dataValue":[{"value":"0","text":"Not Return"},{"value":"1","text":"Returned"}]}],borrow_equipment_itemRecords,"/equipment","equipmentRecords","Name,Serial","name,serial","id,name");
+    _datasheet_Eextmc.init();
+    
+}
+    
+    
+
+</script>

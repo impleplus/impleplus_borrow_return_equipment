@@ -1,0 +1,94 @@
+<div class="page-body">
+	<div class="container-xl">
+ 		<div class="col-12">
+ 			<div class="card">
+ 				<div class="card-body">
+ 					<ul class="nav nav-tabs" data-bs-toggle="tabs">
+ 						<li class="nav-item">
+ 							<a href="#tabs-KeYRHK" class="nav-link active" data-bs-toggle="tab">Information</a>
+ 						</li>
+ 
+ 					</ul>
+ 					<div class="card-body">
+ 						<div class="tab-content">
+ 							<div class="tab-pane active show" id="tabs-KeYRHK">
+ 								<form action="/equipment/save" class="needs-validation" id="frm-KeYRHK" method="post">
+ 									<div class="form-group mb-3 col-md-12">
+ 										<label class="form-label">Name</label>
+ 										<div>
+ 											<input type="text" name="name" id="input_GchtYG" maxlength="100" value="<%=equipmentRecord.name%>" class="form-control " autocomplete="off" >
+ 										</div>
+ 									</div>
+ 
+ 									<div class="form-group mb-3 col-md-12">
+ 										<label class="form-label">Equipment group</label>
+ 											<div class="row g-2">
+ 											<div class="col">
+ 												<input type="hidden" name="equipment_group_id" id="lookup_ujDEBW" value="<%=equipmentRecord.equipment_group_id%>">
+ 												<input type="text" name="equipment_group_id_text" id="lookup_ujDEBW_text" value="<%=equipmentRecord.equipment_group_text%>" required onkeydown="event.preventDefault()" class="form-control " >
+ 											</div>
+ 											<div class="col-auto">
+ 												<button type="button" href="#" class="btn btn-white btn-icon" aria-label="Button" data-title="Equipment group" data-varibale="equipment_groupRecords" data-url="/equipment_group" data-headers="Code,Name" data-fields="code,name" data-select="id,name" data-target="lookup_ujDEBW,lookup_ujDEBW_text" onclick="lookup.open(this)">
+ 													<svg class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><circle cx="10" cy="10" r="7" /><line x1="21" y1="21" x2="15" y2="15" /></svg>
+ 												</button>
+ 											</div>
+ 										</div>
+ 									</div>
+ 							<div class="form-group mb-3 col-md-12">
+ 								<label class="form-label">Image</label>
+ 								<div>
+ 									<a href="<%=equipmentRecord.image%>" target="_blank"><%=equipmentRecord.image%></a> 
+ 									<input type="file" name="image" id="file_XBUAdc" value="<%=equipmentRecord.image%>" class="form-control " >
+ 								</div>
+ 							</div>
+ 									<div class="form-group mb-3 col-md-12">
+ 										<label class="form-label">Serial</label>
+ 										<div>
+ 											<input type="text" name="serial" id="input_dKHhgt" maxlength="100" value="<%=equipmentRecord.serial%>" class="form-control " autocomplete="off" >
+ 										</div>
+ 									</div>
+ 
+ 							<div class="form-group mb-3 col-md-12">
+ 								<label class="form-label">Detail</label>
+ 								<div>
+ 									<textarea name="detail" id="textarea_cSnJVn" maxlength="100" class="form-control " ><%=equipmentRecord.detail%></textarea>
+ 								</div>
+ 							</div>
+ 											<%if(accessAction.edit){%> 
+ 												<div class="spinner-border" id="button_otxxyc_loading" role="status" style="display: none;"><span class="visually-hidden">Loading...</span></div> 
+ 												<button type="submit" id="button_otxxyc" class="btn btn-fw btn-primary btn-save" data-form="frm-KeYRHK" method-callback="" method-before="" >Save</button> 
+ 											<%}%>
+ 
+ 
+ 								</form>
+ 							</div>
+ 
+ 						</div>
+ 					</div>
+ 				</div>
+ 			</div>
+ 		</div>
+ 	</div>
+</div>
+
+<%- contentFor('scripts') %>
+<script type="text/javascript">
+    var accessAction = [];
+    var accessActionData = "<%-accessAction%>";
+    var dataParam = '<%-JSON.stringify(param)%>';
+    var param = {};
+    if(dataParam != ""){
+      param = JSON.parse('<%-JSON.stringify(param)%>');
+    }    
+    if(accessActionData != "" && accessActionData != undefined) {
+        accessAction = JSON.parse(String.raw `<%-JSON.stringify(accessAction)%>`);
+    }
+    0
+
+onload = () => {
+        
+}
+    
+    
+
+</script>

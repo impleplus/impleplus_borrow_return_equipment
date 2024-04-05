@@ -1,0 +1,74 @@
+<div class="page-body">
+	<div class="container-xl">
+ 		<div class="col-12">
+ 			<div class="card">
+ 				<div class="card-body">
+ 							<h3>Equipment</h3><hr class="header-text"/>
+ 								<div class="row pb-1">
+ 									<div class="col col-3">
+ 										<div class="input-icon">
+ 											<span class="input-icon-addon">
+ 												<svg class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><circle cx="10" cy="10" r="7" /><line x1="21" y1="21" x2="15" y2="15" /></svg>
+ 											</span>
+ 											<input type="text" name="qequipmentRecords" id="qequipmentRecords" value="<%=param.qequipmentRecords%>" onkeyup="table_YYuTAb.search(event)" data-type="text" data-field='name,equipment_group_text' data-operator="like" class="form-control table_YYuTAb-searchFilter" placeholder="Search…" autocomplete="off">
+ 										</div>
+ 									</div>
+ 									<div class="col-auto ms-auto d-print-none">
+ 										<div class="btn-list">
+ 											<%if(accessAction.export){%><a href="#" onclick="table_YYuTAb.export()" class="btn btn-outline-secondary d-none d-sm-inline">Export</a><%}%>
+ 											<%if(accessAction.create){%><a href="/equipment/edit" class="btn btn-outline-success d-none d-sm-inline" target="">New Data</a><%}%>
+ 										</div>
+ 									</div>
+ 								</div>
+ 								<div class="table-responsive">
+ 									<table class="table card-table table-vcenter text-nowrap datatable table-striped" id="tbl-table_YYuTAb">
+ 										<thead>
+ 											<tr>
+ 												<th>name</th>
+												<th>equipment_group</th>
+												<th>serial</th>
+												<th></th>
+												<th></th>
+ 											</tr>
+ 										</thead>
+ 										<tbody>
+ 										</tbody>
+ 										<tfoot></tfoot> 
+ 									</table>
+ 								
+
+ 								<div id="tbl-table_YYuTAb-pagination" class="imple-pagination"></div>
+ 							</div>
+ 				</div>
+ 			</div>
+ 		</div>
+ 	</div>
+</div>
+
+<%- contentFor('scripts') %>
+<script type="text/javascript">
+    var accessAction = [];
+    var accessActionData = "<%-accessAction%>";
+    var dataParam = '<%-JSON.stringify(param)%>';
+    var param = {};
+    if(dataParam != ""){
+      param = JSON.parse('<%-JSON.stringify(param)%>');
+    }    
+    if(accessActionData != "" && accessActionData != undefined) {
+        accessAction = JSON.parse(String.raw `<%-JSON.stringify(accessAction)%>`);
+    }
+    
+    var equipmentRecords = JSON.parse(String.raw `<%-JSON.stringify(equipmentRecords)%>`);
+    
+    var equipmentRecordsPagination = JSON.parse(String.raw `<%-JSON.stringify(equipmentRecordsPagination)%>`);
+    var table_YYuTAb = new Table_YYuTAb("table_YYuTAb",accessAction);
+0
+
+onload = () => {
+        table_YYuTAb.render(equipmentRecords,"");
+        table_YYuTAb.pagination(equipmentRecordsPagination);
+}
+    
+    
+
+</script>
